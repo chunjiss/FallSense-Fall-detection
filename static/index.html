@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng điều khiển - FallSense</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">FallSense</div>
+        <ul class="nav-menu">
+            <li class="nav-item active"><a href="index.html">Bảng điều khiển</a></li>
+            <li class="nav-item"><a href="monitor.html">Theo dõi</a></li>
+            <li class="nav-item"><a href="history.html">Lịch sử</a></li>
+            <li class="nav-item"><a href="settings.html">Cài đặt</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-section">
+        <div class="dashboard-container">
+            <!-- Summary Cards -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <h3>Tổng số lần té ngã</h3>
+                    <p id="totalFalls">0</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Té ngã hôm nay</h3>
+                    <p id="todayFalls">0</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Camera đang hoạt động</h3>
+                    <p id="activeCameras">0</p>
+                </div>
+                <div class="summary-card">
+                    <h3>Tổng số camera</h3>
+                    <p id="totalCameras">0</p>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>Thống kê té ngã theo thời gian</h3>
+                    <canvas id="timelineChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Phân bố té ngã theo camera</h3>
+                    <canvas id="cameraDistributionChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Events Section -->
+            <div class="recent-events">
+                <h3>Sự kiện gần đây</h3>
+                <div class="events-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Thời gian</th>
+                                <th>Camera</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentEventsBody">
+                            <!-- Events will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 FallSense. Hệ thống phát hiện té ngã thông minh.</p>
+        </div>
+    </footer>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
